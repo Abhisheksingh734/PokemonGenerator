@@ -5,6 +5,7 @@
   "main": "App.js",
   "scripts": {
     "start": "parcel index.html",
+    "build":"parcel build src/App.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
