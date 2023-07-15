@@ -51,7 +51,7 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 30px;
-  max-height: calc(100vh - 200px);
+  max-height: calc(100vh);
   min-width: 100%;
   overflow: auto;
 }

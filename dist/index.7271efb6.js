@@ -27196,7 +27196,7 @@ const Body = ()=>{
         fetchData();
     }, []);
     (0, _react.useEffect)(()=>{
-        const filtered = pokemonList.filter((pokemon)=>pokemon.name.includes(searchText.toLowerCase()));
+        const filtered = pokemonList.filter((pokemon)=>pokemon.name.startsWith(searchText.toLowerCase()));
         setFilteredPokemon(filtered);
     }, [
         searchText,

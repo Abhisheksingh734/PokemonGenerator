@@ -32,7 +32,7 @@ const Body = () => {
 
   useEffect(() => {
     const filtered = pokemonList.filter((pokemon) =>
-      pokemon.name.includes(searchText.toLowerCase())
+      pokemon.name.startsWith(searchText.toLowerCase())
     );
     setFilteredPokemon(filtered);
   }, [searchText, pokemonList]);

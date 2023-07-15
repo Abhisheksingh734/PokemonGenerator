@@ -51,7 +51,7 @@
   justify-content: center;
   gap: 30px;
   min-width: 100%;
-  max-height: calc(100vh - 200px);
+  max-height: 100vh;
   display: flex;
   overflow: auto;
 }
