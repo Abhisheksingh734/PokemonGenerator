@@ -27316,8 +27316,51 @@ const PokemonCard = ({ url })=>{
     const defense = pokemonData.stats?.[2]?.base_stat;
     const specialAttack = pokemonData.stats?.[3]?.base_stat;
     const speed = pokemonData.stats?.[5]?.base_stat;
+    const type = pokemonData.types?.[0]?.type?.name;
+    const getTypeColor = (type)=>{
+        switch(type){
+            case "fire":
+                return "#EA7A3C"; // Orange
+            case "water":
+                return "#539AE2"; // Blue
+            case "electric":
+                return "#E5C531"; // Yellow
+            case "grass":
+                return "#71C558";
+            case "bug":
+                return "#94BC4A";
+            case "dark":
+                return "#736C75";
+            case "fighting":
+                return "#CB5F48";
+            case "ghost":
+                return "#846AB6";
+            case "ground":
+                return "#CC9F4F";
+            case "ice":
+                return "#70CBD4";
+            case "normal":
+                return "#AAB09F";
+            case "poison":
+                return "#B468B7";
+            case "psychic":
+                return "#E5709B";
+            case "dragon":
+                return "#6A7BAF";
+            case "steel":
+                return "#89A1B0";
+            case "rock":
+                return "#B2A061";
+            default:
+                return "#f5f5f5"; // Default color
+        }
+    };
+    const backgroundColor = getTypeColor(type);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "pokemon-container",
+        style: {
+            backgroundColor
+        },
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 className: "pokemon-img",
@@ -27326,19 +27369,19 @@ const PokemonCard = ({ url })=>{
                     alt: "pokemon image"
                 }, void 0, false, {
                     fileName: "src/components/PokemonCard.js",
-                    lineNumber: 34,
+                    lineNumber: 76,
                     columnNumber: 11
                 }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
                     src: (0, _constantsDefault.default),
                     alt: "default pokemon image"
                 }, void 0, false, {
                     fileName: "src/components/PokemonCard.js",
-                    lineNumber: 36,
+                    lineNumber: 78,
                     columnNumber: 11
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/components/PokemonCard.js",
-                lineNumber: 32,
+                lineNumber: 74,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27349,7 +27392,15 @@ const PokemonCard = ({ url })=>{
                         children: name
                     }, void 0, false, {
                         fileName: "src/components/PokemonCard.js",
-                        lineNumber: 40,
+                        lineNumber: 82,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
+                        className: "pokemon-type",
+                        children: type
+                    }, void 0, false, {
+                        fileName: "src/components/PokemonCard.js",
+                        lineNumber: 83,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27363,7 +27414,7 @@ const PokemonCard = ({ url })=>{
                                         children: "HP:"
                                     }, void 0, false, {
                                         fileName: "src/components/PokemonCard.js",
-                                        lineNumber: 43,
+                                        lineNumber: 87,
                                         columnNumber: 13
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -27371,13 +27422,13 @@ const PokemonCard = ({ url })=>{
                                         children: hp
                                     }, void 0, false, {
                                         fileName: "src/components/PokemonCard.js",
-                                        lineNumber: 44,
+                                        lineNumber: 88,
                                         columnNumber: 13
                                     }, undefined)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/components/PokemonCard.js",
-                                lineNumber: 42,
+                                lineNumber: 86,
                                 columnNumber: 11
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27388,7 +27439,7 @@ const PokemonCard = ({ url })=>{
                                         children: "Attack:"
                                     }, void 0, false, {
                                         fileName: "src/components/PokemonCard.js",
-                                        lineNumber: 47,
+                                        lineNumber: 91,
                                         columnNumber: 13
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -27396,13 +27447,13 @@ const PokemonCard = ({ url })=>{
                                         children: attack
                                     }, void 0, false, {
                                         fileName: "src/components/PokemonCard.js",
-                                        lineNumber: 48,
+                                        lineNumber: 92,
                                         columnNumber: 13
                                     }, undefined)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/components/PokemonCard.js",
-                                lineNumber: 46,
+                                lineNumber: 90,
                                 columnNumber: 11
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27413,7 +27464,7 @@ const PokemonCard = ({ url })=>{
                                         children: "Defense:"
                                     }, void 0, false, {
                                         fileName: "src/components/PokemonCard.js",
-                                        lineNumber: 51,
+                                        lineNumber: 95,
                                         columnNumber: 13
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -27421,13 +27472,13 @@ const PokemonCard = ({ url })=>{
                                         children: defense
                                     }, void 0, false, {
                                         fileName: "src/components/PokemonCard.js",
-                                        lineNumber: 52,
+                                        lineNumber: 96,
                                         columnNumber: 13
                                     }, undefined)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/components/PokemonCard.js",
-                                lineNumber: 50,
+                                lineNumber: 94,
                                 columnNumber: 11
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27438,7 +27489,7 @@ const PokemonCard = ({ url })=>{
                                         children: "Special Attack:"
                                     }, void 0, false, {
                                         fileName: "src/components/PokemonCard.js",
-                                        lineNumber: 55,
+                                        lineNumber: 99,
                                         columnNumber: 13
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -27446,13 +27497,13 @@ const PokemonCard = ({ url })=>{
                                         children: specialAttack
                                     }, void 0, false, {
                                         fileName: "src/components/PokemonCard.js",
-                                        lineNumber: 56,
+                                        lineNumber: 100,
                                         columnNumber: 13
                                     }, undefined)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/components/PokemonCard.js",
-                                lineNumber: 54,
+                                lineNumber: 98,
                                 columnNumber: 11
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27463,7 +27514,7 @@ const PokemonCard = ({ url })=>{
                                         children: "Speed:"
                                     }, void 0, false, {
                                         fileName: "src/components/PokemonCard.js",
-                                        lineNumber: 59,
+                                        lineNumber: 103,
                                         columnNumber: 13
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -27471,31 +27522,31 @@ const PokemonCard = ({ url })=>{
                                         children: speed
                                     }, void 0, false, {
                                         fileName: "src/components/PokemonCard.js",
-                                        lineNumber: 60,
+                                        lineNumber: 104,
                                         columnNumber: 13
                                     }, undefined)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/components/PokemonCard.js",
-                                lineNumber: 58,
+                                lineNumber: 102,
                                 columnNumber: 11
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/PokemonCard.js",
-                        lineNumber: 41,
+                        lineNumber: 85,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/PokemonCard.js",
-                lineNumber: 39,
+                lineNumber: 81,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/PokemonCard.js",
-        lineNumber: 31,
+        lineNumber: 73,
         columnNumber: 5
     }, undefined);
 };
