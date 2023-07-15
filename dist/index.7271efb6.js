@@ -27174,14 +27174,22 @@ const Body = ()=>{
     _s();
     const [jsonData, setjsonData] = (0, _react.useState)(null);
     const [searchText, setSearchText] = (0, _react.useState)("");
-    const [pokemonName, setPokemonName] = (0, _react.useState)("pikachu");
+    const [pokemonName, setPokemonName] = (0, _react.useState)("");
     const fetchData = async ()=>{
-        const URL = `https://pokeapi.co/api/v2/pokemon/${pokemonName}`;
-        const response = await fetch(URL);
-        const data = await response.json();
-        console.log(data);
-        // setjsonData(data.sprites.other["official-artwork"]);
-        setjsonData(data);
+        if (pokemonName != "") {
+            const URL = `https://pokeapi.co/api/v2/pokemon/${pokemonName}`;
+            const response = await fetch(URL);
+            const data = await response.json();
+            console.log(data);
+            // setjsonData(data.sprites.other["official-artwork"]);
+            setjsonData(data);
+        } else return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            children: "Pokemon Here"
+        }, void 0, false, {
+            fileName: "src/components/Body.js",
+            lineNumber: 18,
+            columnNumber: 14
+        }, undefined);
     };
     (0, _react.useEffect)(()=>{
         fetchData();
@@ -27198,7 +27206,7 @@ const Body = ()=>{
                 children: "Search Your Pokemon"
             }, void 0, false, {
                 fileName: "src/components/Body.js",
-                lineNumber: 30,
+                lineNumber: 34,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27207,13 +27215,13 @@ const Body = ()=>{
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
                         className: "search-text",
                         type: "text",
-                        value: searchText,
+                        value: searchText.toLowerCase(),
                         onChange: (e)=>{
                             setSearchText(e.target.value);
                         }
                     }, void 0, false, {
                         fileName: "src/components/Body.js",
-                        lineNumber: 32,
+                        lineNumber: 36,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -27223,13 +27231,13 @@ const Body = ()=>{
                         children: "Search"
                     }, void 0, false, {
                         fileName: "src/components/Body.js",
-                        lineNumber: 40,
+                        lineNumber: 44,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/Body.js",
-                lineNumber: 31,
+                lineNumber: 35,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27238,22 +27246,22 @@ const Body = ()=>{
                     pokeData: jsonData
                 }, void 0, false, {
                     fileName: "src/components/Body.js",
-                    lineNumber: 45,
+                    lineNumber: 49,
                     columnNumber: 9
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/components/Body.js",
-                lineNumber: 44,
+                lineNumber: 48,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/Body.js",
-        lineNumber: 29,
+        lineNumber: 33,
         columnNumber: 5
     }, undefined);
 };
-_s(Body, "q961TFnAyT7IFBpCY0DJFdfnqWY=");
+_s(Body, "qYAI24TnZwwh8JjEbDNWTPhulg4=");
 _c = Body;
 exports.default = Body;
 var _c;

@@ -23,10 +23,10 @@
 .search-text {
   border: 1px solid #ddd;
   border-radius: 5px;
-  height: 30px;
+  height: 40px;
   margin-right: 10px;
-  padding: 5px;
-  font-size: 16px;
+  padding: 10px;
+  font-size: 20px;
 }
 
 .search-btn {
@@ -35,8 +35,13 @@
   background-color: #007bff;
   border: none;
   border-radius: 5px;
-  padding: 8px 15px;
-  font-size: 16px;
+  padding: 10px 20px;
+  font-size: 20px;
+}
+
+.search-btn:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
 }
 
 .pokemon-card-container {
@@ -113,7 +118,7 @@
 
 h1 {
   margin-bottom: 20px;
-  font-size: 40px;
+  font-size: 3rem;
 }
 
 /*# sourceMappingURL=index.3a01df49.css.map */

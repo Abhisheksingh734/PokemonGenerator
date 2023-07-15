@@ -4,15 +4,19 @@ import PokemonCard from "./PokemonCard";
 const Body = () => {
   const [jsonData, setjsonData] = useState(null);
   const [searchText, setSearchText] = useState("");
-  const [pokemonName, setPokemonName] = useState("pikachu");
+  const [pokemonName, setPokemonName] = useState("");
 
   const fetchData = async () => {
-    const URL = `https://pokeapi.co/api/v2/pokemon/${pokemonName}`;
-    const response = await fetch(URL);
-    const data = await response.json();
-    console.log(data);
-    // setjsonData(data.sprites.other["official-artwork"]);
-    setjsonData(data);
+    if (pokemonName != "") {
+      const URL = `https://pokeapi.co/api/v2/pokemon/${pokemonName}`;
+      const response = await fetch(URL);
+      const data = await response.json();
+      console.log(data);
+      // setjsonData(data.sprites.other["official-artwork"]);
+      setjsonData(data);
+    } else {
+      return <div>Pokemon Here</div>;
+    }
   };
 
   useEffect(() => {
@@ -32,7 +36,7 @@ const Body = () => {
         <input
           className="search-text"
           type="text"
-          value={searchText}
+          value={searchText.toLowerCase()}
           onChange={(e) => {
             setSearchText(e.target.value);
           }}

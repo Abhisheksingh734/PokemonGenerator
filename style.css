@@ -22,22 +22,27 @@
 }
 
 .search-text {
-  height: 30px;
-  font-size: 16px;
-  padding: 5px;
+  height: 40px; /* Increase the height for a bigger text input */
+  font-size: 20px; /* Increase the font size */
+  padding: 10px; /* Increase the padding for more space */
   border: 1px solid #ddd;
   border-radius: 5px;
   margin-right: 10px;
 }
 
 .search-btn {
-  padding: 8px 15px;
+  padding: 10px 20px; /* Increase the padding for a bigger button */
   border-radius: 5px;
-  font-size: 16px;
+  font-size: 20px; /* Increase the font size */
   color: #fff;
   background-color: #007bff;
   border: none;
   cursor: pointer;
+}
+
+.search-btn:hover {
+  transform: scale(1.05);
+  background-color: #0056b3; /* Change the background color on hover */
 }
 
 .pokemon-card-container {
@@ -114,6 +119,5 @@
 
 h1 {
   margin-bottom: 20px;
-  font-size: 40px;
-  
+  font-size: 3rem;
 }
