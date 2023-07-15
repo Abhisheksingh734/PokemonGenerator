@@ -8,9 +8,9 @@ const Body = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch(
-        "https://pokeapi.co/api/v2/pokemon?limit=200"
-      );
+      const randomOffset = Math.floor(Math.random() * 1000); // to Generate a random offset
+      const URL = `https://pokeapi.co/api/v2/pokemon?offset=${randomOffset}&limit=200`;
+      const response = await fetch(URL);
       const data = await response.json();
       setPokemonList(data.results);
       setFilteredPokemon(data.results);

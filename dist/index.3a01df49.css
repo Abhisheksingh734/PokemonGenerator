@@ -87,6 +87,7 @@
 }
 
 .pokemon-img img {
+  pointer-events: none;
   object-fit: contain;
   background-color: #0000;
   width: 100%;
