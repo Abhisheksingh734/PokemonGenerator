@@ -28,6 +28,7 @@
   border: 1px solid #ddd;
   border-radius: 5px;
   margin-right: 10px;
+  margin-bottom: 10px;
 }
 
 .search-btn {
@@ -38,6 +39,7 @@
   background-color: #007bff;
   border: none;
   cursor: pointer;
+  margin-bottom: 10px;
 }
 
 .search-btn:hover {
@@ -50,6 +52,8 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
+  max-height: calc(100vh - 200px); /* Adjust the max-height to leave space for other elements on the page */
+  overflow-y: auto; /* Add vertical scroll if necessary */
 }
 
 .pokemon-container {

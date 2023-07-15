@@ -1,33 +1,41 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import PokemonCard from "./PokemonCard";
 
 const Body = () => {
-  const [jsonData, setjsonData] = useState(null);
+  const [pokemonList, setPokemonList] = useState([]);
   const [searchText, setSearchText] = useState("");
-  const [pokemonName, setPokemonName] = useState("");
-
-  const fetchData = async () => {
-    if (pokemonName != "") {
-      const URL = `https://pokeapi.co/api/v2/pokemon/${pokemonName}`;
-      const response = await fetch(URL);
-      const data = await response.json();
-      console.log(data);
-      // setjsonData(data.sprites.other["official-artwork"]);
-      setjsonData(data);
-    } else {
-      return <div>Pokemon Here</div>;
-    }
-  };
+  const [filteredPokemon, setFilteredPokemon] = useState([]);
 
   useEffect(() => {
-    fetchData();
-  }, [pokemonName]);
+    const fetchData = async () => {
+      const response = await fetch(
+        "https://pokeapi.co/api/v2/pokemon?limit=200"
+      );
+      const data = await response.json();
+      setPokemonList(data.results);
+      setFilteredPokemon(data.results);
+    };
 
-  const searchPokemon = () => {
-    if (searchText !== "") {
-      setPokemonName(searchText);
-    }
-  };
+    // {
+    //   window.addEventListener("scroll", () => {
+    //     if (
+    //       window.scrollY + window.innerHeight >=
+    //       document.documentElement.scrollHeight
+    //     ) {
+    //       fetchData();
+    //     }
+    //   });
+    // }
+
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    const filtered = pokemonList.filter((pokemon) =>
+      pokemon.name.includes(searchText.toLowerCase())
+    );
+    setFilteredPokemon(filtered);
+  }, [searchText, pokemonList]);
 
   return (
     <div className="main-container">
@@ -36,17 +44,21 @@ const Body = () => {
         <input
           className="search-text"
           type="text"
-          value={searchText.toLowerCase()}
-          onChange={(e) => {
-            setSearchText(e.target.value);
-          }}
-        ></input>
-        <button className="search-btn" type="button" onClick={searchPokemon}>
-          Search
+          value={searchText}
+          onChange={(e) => setSearchText(e.target.value)}
+        />
+        <button
+          className="search-btn"
+          type="button"
+          onClick={() => setSearchText("")}
+        >
+          Clear
         </button>
       </div>
       <div className="pokemon-card-container">
-        <PokemonCard pokeData={jsonData} />
+        {filteredPokemon.map((pokemon) => (
+          <PokemonCard key={pokemon.name} url={pokemon.url} />
+        ))}
       </div>
     </div>
   );

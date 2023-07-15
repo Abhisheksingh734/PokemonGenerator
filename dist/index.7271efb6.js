@@ -2960,7 +2960,7 @@ _c = App;
 const root = (0, _clientDefault.default).createRoot(document.querySelector(".root"));
 root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(App, {}, void 0, false, {
     fileName: "src/App.js",
-    lineNumber: 10,
+    lineNumber: 11,
     columnNumber: 13
 }, undefined));
 var _c;
@@ -27167,38 +27167,41 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
 var _pokemonCard = require("./PokemonCard");
 var _pokemonCardDefault = parcelHelpers.interopDefault(_pokemonCard);
 var _s = $RefreshSig$();
 const Body = ()=>{
     _s();
-    const [jsonData, setjsonData] = (0, _react.useState)(null);
+    const [pokemonList, setPokemonList] = (0, _react.useState)([]);
     const [searchText, setSearchText] = (0, _react.useState)("");
-    const [pokemonName, setPokemonName] = (0, _react.useState)("");
-    const fetchData = async ()=>{
-        if (pokemonName != "") {
-            const URL = `https://pokeapi.co/api/v2/pokemon/${pokemonName}`;
-            const response = await fetch(URL);
-            const data = await response.json();
-            console.log(data);
-            // setjsonData(data.sprites.other["official-artwork"]);
-            setjsonData(data);
-        } else return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-            children: "Pokemon Here"
-        }, void 0, false, {
-            fileName: "src/components/Body.js",
-            lineNumber: 18,
-            columnNumber: 14
-        }, undefined);
-    };
+    const [filteredPokemon, setFilteredPokemon] = (0, _react.useState)([]);
     (0, _react.useEffect)(()=>{
+        const fetchData = async ()=>{
+            const response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=200");
+            const data = await response.json();
+            setPokemonList(data.results);
+            setFilteredPokemon(data.results);
+        };
+        // {
+        //   window.addEventListener("scroll", () => {
+        //     if (
+        //       window.scrollY + window.innerHeight >=
+        //       document.documentElement.scrollHeight
+        //     ) {
+        //       fetchData();
+        //     }
+        //   });
+        // }
         fetchData();
+    }, []);
+    (0, _react.useEffect)(()=>{
+        const filtered = pokemonList.filter((pokemon)=>pokemon.name.includes(searchText.toLowerCase()));
+        setFilteredPokemon(filtered);
     }, [
-        pokemonName
+        searchText,
+        pokemonList
     ]);
-    const searchPokemon = ()=>{
-        if (searchText !== "") setPokemonName(searchText);
-    };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "main-container",
         children: [
@@ -27206,7 +27209,7 @@ const Body = ()=>{
                 children: "Search Your Pokemon"
             }, void 0, false, {
                 fileName: "src/components/Body.js",
-                lineNumber: 34,
+                lineNumber: 42,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27215,53 +27218,51 @@ const Body = ()=>{
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
                         className: "search-text",
                         type: "text",
-                        value: searchText.toLowerCase(),
-                        onChange: (e)=>{
-                            setSearchText(e.target.value);
-                        }
+                        value: searchText,
+                        onChange: (e)=>setSearchText(e.target.value)
                     }, void 0, false, {
                         fileName: "src/components/Body.js",
-                        lineNumber: 36,
+                        lineNumber: 44,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                         className: "search-btn",
                         type: "button",
-                        onClick: searchPokemon,
-                        children: "Search"
+                        onClick: ()=>setSearchText(""),
+                        children: "Clear"
                     }, void 0, false, {
                         fileName: "src/components/Body.js",
-                        lineNumber: 44,
+                        lineNumber: 50,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/Body.js",
-                lineNumber: 35,
+                lineNumber: 43,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 className: "pokemon-card-container",
-                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _pokemonCardDefault.default), {
-                    pokeData: jsonData
-                }, void 0, false, {
-                    fileName: "src/components/Body.js",
-                    lineNumber: 49,
-                    columnNumber: 9
-                }, undefined)
+                children: filteredPokemon.map((pokemon)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _pokemonCardDefault.default), {
+                        url: pokemon.url
+                    }, pokemon.name, false, {
+                        fileName: "src/components/Body.js",
+                        lineNumber: 60,
+                        columnNumber: 11
+                    }, undefined))
             }, void 0, false, {
                 fileName: "src/components/Body.js",
-                lineNumber: 48,
+                lineNumber: 58,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/Body.js",
-        lineNumber: 33,
+        lineNumber: 41,
         columnNumber: 5
     }, undefined);
 };
-_s(Body, "qYAI24TnZwwh8JjEbDNWTPhulg4=");
+_s(Body, "5LEeD6x2HdX+UtvzeGZlCeVruME=");
 _c = Body;
 exports.default = Body;
 var _c;
@@ -27282,34 +27283,62 @@ try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
 var _constants = require("../utils/constants");
 var _constantsDefault = parcelHelpers.interopDefault(_constants);
-const PokemonCard = (props)=>{
-    const { pokeData } = props;
-    console.log(pokeData);
-    if (pokeData === null) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+var _s = $RefreshSig$();
+const PokemonCard = ({ url })=>{
+    _s();
+    const [pokemonData, setPokemonData] = (0, _react.useState)(null);
+    (0, _react.useEffect)(()=>{
+        const fetchData = async ()=>{
+            const response = await fetch(url);
+            const data = await response.json();
+            setPokemonData(data);
+        };
+        fetchData();
+    }, [
+        url
+    ]);
+    if (!pokemonData) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "no-data",
         children: "Loading..."
     }, void 0, false, {
         fileName: "src/components/PokemonCard.js",
-        lineNumber: 6,
+        lineNumber: 18,
         columnNumber: 12
     }, undefined);
+    const officialArtwork = pokemonData.sprites?.other?.["official-artwork"]?.front_default;
+    const name = pokemonData.name;
+    const hp = pokemonData.stats?.[0]?.base_stat;
+    const attack = pokemonData.stats?.[1]?.base_stat;
+    const defense = pokemonData.stats?.[2]?.base_stat;
+    const specialAttack = pokemonData.stats?.[3]?.base_stat;
+    const speed = pokemonData.stats?.[5]?.base_stat;
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "pokemon-container",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 className: "pokemon-img",
-                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                    src: pokeData.sprites.other["official-artwork"].front_default,
+                children: officialArtwork ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                    src: officialArtwork,
                     alt: "pokemon image"
                 }, void 0, false, {
                     fileName: "src/components/PokemonCard.js",
-                    lineNumber: 11,
-                    columnNumber: 9
+                    lineNumber: 34,
+                    columnNumber: 11
+                }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                    src: (0, _constantsDefault.default),
+                    alt: "default pokemon image"
+                }, void 0, false, {
+                    fileName: "src/components/PokemonCard.js",
+                    lineNumber: 36,
+                    columnNumber: 11
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/components/PokemonCard.js",
-                lineNumber: 10,
+                lineNumber: 32,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27317,10 +27346,10 @@ const PokemonCard = (props)=>{
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
                         className: "pokemon-name",
-                        children: pokeData.name
+                        children: name
                     }, void 0, false, {
                         fileName: "src/components/PokemonCard.js",
-                        lineNumber: 17,
+                        lineNumber: 40,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27334,21 +27363,21 @@ const PokemonCard = (props)=>{
                                         children: "HP:"
                                     }, void 0, false, {
                                         fileName: "src/components/PokemonCard.js",
-                                        lineNumber: 20,
+                                        lineNumber: 43,
                                         columnNumber: 13
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                                         className: "stat-value",
-                                        children: pokeData.stats[0].base_stat
+                                        children: hp
                                     }, void 0, false, {
                                         fileName: "src/components/PokemonCard.js",
-                                        lineNumber: 21,
+                                        lineNumber: 44,
                                         columnNumber: 13
                                     }, undefined)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/components/PokemonCard.js",
-                                lineNumber: 19,
+                                lineNumber: 42,
                                 columnNumber: 11
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27359,21 +27388,21 @@ const PokemonCard = (props)=>{
                                         children: "Attack:"
                                     }, void 0, false, {
                                         fileName: "src/components/PokemonCard.js",
-                                        lineNumber: 24,
+                                        lineNumber: 47,
                                         columnNumber: 13
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                                         className: "stat-value",
-                                        children: pokeData.stats[1].base_stat
+                                        children: attack
                                     }, void 0, false, {
                                         fileName: "src/components/PokemonCard.js",
-                                        lineNumber: 25,
+                                        lineNumber: 48,
                                         columnNumber: 13
                                     }, undefined)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/components/PokemonCard.js",
-                                lineNumber: 23,
+                                lineNumber: 46,
                                 columnNumber: 11
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27384,21 +27413,21 @@ const PokemonCard = (props)=>{
                                         children: "Defense:"
                                     }, void 0, false, {
                                         fileName: "src/components/PokemonCard.js",
-                                        lineNumber: 28,
+                                        lineNumber: 51,
                                         columnNumber: 13
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                                         className: "stat-value",
-                                        children: pokeData.stats[2].base_stat
+                                        children: defense
                                     }, void 0, false, {
                                         fileName: "src/components/PokemonCard.js",
-                                        lineNumber: 29,
+                                        lineNumber: 52,
                                         columnNumber: 13
                                     }, undefined)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/components/PokemonCard.js",
-                                lineNumber: 27,
+                                lineNumber: 50,
                                 columnNumber: 11
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27409,21 +27438,21 @@ const PokemonCard = (props)=>{
                                         children: "Special Attack:"
                                     }, void 0, false, {
                                         fileName: "src/components/PokemonCard.js",
-                                        lineNumber: 32,
+                                        lineNumber: 55,
                                         columnNumber: 13
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                                         className: "stat-value",
-                                        children: pokeData.stats[3].base_stat
+                                        children: specialAttack
                                     }, void 0, false, {
                                         fileName: "src/components/PokemonCard.js",
-                                        lineNumber: 33,
+                                        lineNumber: 56,
                                         columnNumber: 13
                                     }, undefined)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/components/PokemonCard.js",
-                                lineNumber: 31,
+                                lineNumber: 54,
                                 columnNumber: 11
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27434,42 +27463,43 @@ const PokemonCard = (props)=>{
                                         children: "Speed:"
                                     }, void 0, false, {
                                         fileName: "src/components/PokemonCard.js",
-                                        lineNumber: 36,
+                                        lineNumber: 59,
                                         columnNumber: 13
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                                         className: "stat-value",
-                                        children: pokeData.stats[5].base_stat
+                                        children: speed
                                     }, void 0, false, {
                                         fileName: "src/components/PokemonCard.js",
-                                        lineNumber: 37,
+                                        lineNumber: 60,
                                         columnNumber: 13
                                     }, undefined)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/components/PokemonCard.js",
-                                lineNumber: 35,
+                                lineNumber: 58,
                                 columnNumber: 11
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/PokemonCard.js",
-                        lineNumber: 18,
+                        lineNumber: 41,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/PokemonCard.js",
-                lineNumber: 16,
+                lineNumber: 39,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/PokemonCard.js",
-        lineNumber: 9,
+        lineNumber: 31,
         columnNumber: 5
     }, undefined);
 };
+_s(PokemonCard, "RJPha4xvN2DyDpLxX9dQPtNn4oU=");
 _c = PokemonCard;
 exports.default = PokemonCard;
 var _c;
@@ -27480,7 +27510,7 @@ $RefreshReg$(_c, "PokemonCard");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","../utils/constants":"hB8jg","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"hB8jg":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","../utils/constants":"hB8jg","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react":"21dqq"}],"hB8jg":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 const IMG = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/shiny/132.png";
