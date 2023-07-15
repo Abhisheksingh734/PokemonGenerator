@@ -1,4 +1,4 @@
-6047
+6051
 127C:\Users\abhis\OneDrive\Desktop\MYprojects\PokemonGenerator\node_modules\@parcel\workers\test\integration\workerfarm\logging.js133333897778062469 0
 103C:\Users\abhis\OneDrive\Desktop\MYprojects\PokemonGenerator\node_modules\type-fest\ts41\kebab-case.d.ts133333897777488876 0
 90C:\Users\abhis\OneDrive\Desktop\MYprojects\PokemonGenerator\node_modules\has-flag\index.js133333897769990093 0
@@ -14,12 +14,12 @@
 126C:\Users\abhis\OneDrive\Desktop\MYprojects\PokemonGenerator\node_modules\lmdb\node_modules\msgpackr\dist\index-no-eval.cjs.map133333897779461450 0
 130C:\Users\abhis\OneDrive\Desktop\MYprojects\PokemonGenerator\node_modules\csso\node_modules\css-tree\cjs\generator\token-before.cjs133333897785768454 0
 108C:\Users\abhis\OneDrive\Desktop\MYprojects\PokemonGenerator\node_modules\@parcel\core\test\fixtures\main-mjs133333897788610538 1
-72C:\Users\abhis\OneDrive\Desktop\MYprojects\PokemonGenerator\package.json133333917614552196 0
+72C:\Users\abhis\OneDrive\Desktop\MYprojects\PokemonGenerator\package.json133338923474043355 0
 121C:\Users\abhis\OneDrive\Desktop\MYprojects\PokemonGenerator\node_modules\react\cjs\react-jsx-dev-runtime.profiling.min.js133332711470578415 0
 123C:\Users\abhis\OneDrive\Desktop\MYprojects\PokemonGenerator\node_modules\@parcel\reporter-dev-server\src\templates\404.html133333897770430819 0
 94C:\Users\abhis\OneDrive\Desktop\MYprojects\PokemonGenerator\node_modules\@parcel\markdown-ansi133333897771935850 1
 127C:\Users\abhis\OneDrive\Desktop\MYprojects\PokemonGenerator\node_modules\css-select\node_modules\entities\lib\esm\decode.js.map133333897780486844 0
-64C:\Users\abhis\OneDrive\Desktop\MYprojects\PokemonGenerator\dist133333909739838464 1
+64C:\Users\abhis\OneDrive\Desktop\MYprojects\PokemonGenerator\dist133338949921309921 1
 122C:\Users\abhis\OneDrive\Desktop\MYprojects\PokemonGenerator\node_modules\lmdb\dependencies\lmdb\libraries\liblmdb\Makefile133333897776671008 0
 87C:\Users\abhis\OneDrive\Desktop\MYprojects\PokemonGenerator\node_modules\domelementtype133333897773871158 1
 109C:\Users\abhis\OneDrive\Desktop\MYprojects\PokemonGenerator\node_modules\@parcel\source-map\dist\wasm.js.flow133333897773325177 0
@@ -42,7 +42,7 @@
 114C:\Users\abhis\OneDrive\Desktop\MYprojects\PokemonGenerator\node_modules\css-tree\lib\syntax\node\ClassSelector.js133333897787067210 0
 99C:\Users\abhis\OneDrive\Desktop\MYprojects\PokemonGenerator\node_modules\css-select\lib\sort.js.map133333897783058056 0
 91C:\Users\abhis\OneDrive\Desktop\MYprojects\PokemonGenerator\node_modules\svgo\lib\svgo.d.ts133333897784533321 0
-70C:\Users\abhis\OneDrive\Desktop\MYprojects\PokemonGenerator\.gitignore133333880465425974 0
+70C:\Users\abhis\OneDrive\Desktop\MYprojects\PokemonGenerator\.gitignore133338949606930350 0
 105C:\Users\abhis\OneDrive\Desktop\MYprojects\PokemonGenerator\node_modules\css-what\lib\commonjs\index.d.ts133333897777738616 0
 98C:\Users\abhis\OneDrive\Desktop\MYprojects\PokemonGenerator\node_modules\is-arrayish\.editorconfig133333897772956941 0
 140C:\Users\abhis\OneDrive\Desktop\MYprojects\PokemonGenerator\node_modules\css-select\node_modules\entities\lib\generated\decode-data-xml.d.ts133333897783018054 0
@@ -3207,6 +3207,7 @@
 100C:\Users\abhis\OneDrive\Desktop\MYprojects\PokemonGenerator\node_modules\csso\cjs\replace\Number.cjs133333897779750527 0
 114C:\Users\abhis\OneDrive\Desktop\MYprojects\PokemonGenerator\node_modules\@parcel\transformer-posthtml\package.json133333897772836902 0
 114C:\Users\abhis\OneDrive\Desktop\MYprojects\PokemonGenerator\node_modules\caniuse-lite\data\features\input-event.js133333897792439611 0
+87C:\Users\abhis\OneDrive\Desktop\MYprojects\PokemonGenerator\dist\index.adb34979.css.map133338949823200302 0
 104C:\Users\abhis\OneDrive\Desktop\MYprojects\PokemonGenerator\node_modules\csso\cjs\replace\Percentage.cjs133333897779875569 0
 98C:\Users\abhis\OneDrive\Desktop\MYprojects\PokemonGenerator\node_modules\csso\cjs\replace\property133333897778471742 1
 103C:\Users\abhis\OneDrive\Desktop\MYprojects\PokemonGenerator\node_modules\@parcel\node-resolver-core\lib133333897772466041 1
@@ -3568,7 +3569,7 @@
 144C:\Users\abhis\OneDrive\Desktop\MYprojects\PokemonGenerator\node_modules\css-select\node_modules\entities\lib\esm\generated\encode-html.d.ts.map133333897780606972 0
 142C:\Users\abhis\OneDrive\Desktop\MYprojects\PokemonGenerator\node_modules\css-select\node_modules\entities\lib\esm\generated\encode-html.js.map133333897780897162 0
 113C:\Users\abhis\OneDrive\Desktop\MYprojects\PokemonGenerator\node_modules\css-select\node_modules\domutils\LICENSE133333897769052941 0
-82C:\Users\abhis\OneDrive\Desktop\MYprojects\PokemonGenerator\dist\index.7271efb6.js133333902434647300 0
+82C:\Users\abhis\OneDrive\Desktop\MYprojects\PokemonGenerator\dist\index.7271efb6.js133338949921309921 0
 113C:\Users\abhis\OneDrive\Desktop\MYprojects\PokemonGenerator\node_modules\css-select\node_modules\domutils\lib\esm133333897783388246 1
 110C:\Users\abhis\OneDrive\Desktop\MYprojects\PokemonGenerator\node_modules\cosmiconfig\dist\getPropertyByPath.js133333897773780434 0
 122C:\Users\abhis\OneDrive\Desktop\MYprojects\PokemonGenerator\node_modules\css-select\node_modules\domutils\lib\feeds.js.map133333897778484261 0
@@ -3773,7 +3774,7 @@
 105C:\Users\abhis\OneDrive\Desktop\MYprojects\PokemonGenerator\node_modules\cosmiconfig\dist\getDirectory.js133333897773245059 0
 92C:\Users\abhis\OneDrive\Desktop\MYprojects\PokemonGenerator\node_modules\argparse\lib\sub.js133333897771575534 0
 112C:\Users\abhis\OneDrive\Desktop\MYprojects\PokemonGenerator\node_modules\cosmiconfig\dist\getPropertyByPath.d.ts133333897781056466 0
-86C:\Users\abhis\OneDrive\Desktop\MYprojects\PokemonGenerator\dist\index.7271efb6.js.map133333902434786184 0
+86C:\Users\abhis\OneDrive\Desktop\MYprojects\PokemonGenerator\dist\index.7271efb6.js.map133338949921309921 0
 82C:\Users\abhis\OneDrive\Desktop\MYprojects\PokemonGenerator\dist\index.6bd02f5a.js133332711206740721 0
 114C:\Users\abhis\OneDrive\Desktop\MYprojects\PokemonGenerator\node_modules\cosmiconfig\dist\getPropertyByPath.js.map133333897779008640 0
 118C:\Users\abhis\OneDrive\Desktop\MYprojects\PokemonGenerator\node_modules\@swc\helpers\cjs\_class_private_field_set.cjs133333897779305587 0
@@ -3860,6 +3861,7 @@
 104C:\Users\abhis\OneDrive\Desktop\MYprojects\PokemonGenerator\node_modules\caniuse-lite\data\regions\AL.js133333897776671008 0
 108C:\Users\abhis\OneDrive\Desktop\MYprojects\PokemonGenerator\node_modules\caniuse-lite\data\regions\alt-an.js133333897777071616 0
 108C:\Users\abhis\OneDrive\Desktop\MYprojects\PokemonGenerator\node_modules\caniuse-lite\data\regions\alt-as.js133333897777391574 0
+86C:\Users\abhis\OneDrive\Desktop\MYprojects\PokemonGenerator\dist\index.db4cd23f.js.map133338949823200302 0
 108C:\Users\abhis\OneDrive\Desktop\MYprojects\PokemonGenerator\node_modules\caniuse-lite\data\regions\alt-eu.js133333897777689417 0
 108C:\Users\abhis\OneDrive\Desktop\MYprojects\PokemonGenerator\node_modules\caniuse-lite\data\regions\alt-na.js133333897777942374 0
 114C:\Users\abhis\OneDrive\Desktop\MYprojects\PokemonGenerator\node_modules\caniuse-lite\data\features\input-range.js133333897792565339 0
@@ -5913,6 +5915,7 @@
 113C:\Users\abhis\OneDrive\Desktop\MYprojects\PokemonGenerator\node_modules\@parcel\core\src\requests\PathRequest.js133333897786165958 0
 119C:\Users\abhis\OneDrive\Desktop\MYprojects\PokemonGenerator\node_modules\@parcel\core\src\requests\ValidationRequest.js133333897787828921 0
 120C:\Users\abhis\OneDrive\Desktop\MYprojects\PokemonGenerator\node_modules\@parcel\core\src\requests\WriteBundleRequest.js133333897787909422 0
+83C:\Users\abhis\OneDrive\Desktop\MYprojects\PokemonGenerator\dist\index.adb34979.css133338949823050205 0
 105C:\Users\abhis\OneDrive\Desktop\MYprojects\PokemonGenerator\node_modules\@parcel\core\src\public\Asset.js133333897778843814 0
 106C:\Users\abhis\OneDrive\Desktop\MYprojects\PokemonGenerator\node_modules\@parcel\core\src\public\Bundle.js133333897780897162 0
 111C:\Users\abhis\OneDrive\Desktop\MYprojects\PokemonGenerator\node_modules\@parcel\core\src\public\BundleGraph.js133333897781687027 0
@@ -6040,9 +6043,10 @@
 86C:\Users\abhis\OneDrive\Desktop\MYprojects\PokemonGenerator\node_modules\.bin\svgo.ps1133333897798832719 0
 100C:\Users\abhis\OneDrive\Desktop\MYprojects\PokemonGenerator\node_modules\.bin\update-browserslist-db133333897798832719 0
 71C:\Users\abhis\OneDrive\Desktop\MYprojects\PokemonGenerator\dist\App.js133333909739684909 0
-83C:\Users\abhis\OneDrive\Desktop\MYprojects\PokemonGenerator\dist\index.3a01df49.css133333902433138424 0
-87C:\Users\abhis\OneDrive\Desktop\MYprojects\PokemonGenerator\dist\index.3a01df49.css.map133333902433195501 0
+83C:\Users\abhis\OneDrive\Desktop\MYprojects\PokemonGenerator\dist\index.3a01df49.css133338949920397384 0
+87C:\Users\abhis\OneDrive\Desktop\MYprojects\PokemonGenerator\dist\index.3a01df49.css.map133338949920452534 0
 82C:\Users\abhis\OneDrive\Desktop\MYprojects\PokemonGenerator\dist\index.7826abd7.js133332738497520422 0
-75C:\Users\abhis\OneDrive\Desktop\MYprojects\PokemonGenerator\dist\index.html133333902434792008 0
+82C:\Users\abhis\OneDrive\Desktop\MYprojects\PokemonGenerator\dist\index.db4cd23f.js133338949823050205 0
+75C:\Users\abhis\OneDrive\Desktop\MYprojects\PokemonGenerator\dist\index.html133338949920812526 0
 93C:\Users\abhis\OneDrive\Desktop\MYprojects\PokemonGenerator\dist\PokemonGenerator.3464ddca.js133332711206740721 0
 97C:\Users\abhis\OneDrive\Desktop\MYprojects\PokemonGenerator\dist\PokemonGenerator.3464ddca.js.map133332711206901035 0
