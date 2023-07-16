@@ -27170,6 +27170,8 @@ var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _pokemonCard = require("./PokemonCard");
 var _pokemonCardDefault = parcelHelpers.interopDefault(_pokemonCard);
+var _shimmer = require("./Shimmer");
+var _shimmerDefault = parcelHelpers.interopDefault(_shimmer);
 var _s = $RefreshSig$();
 const Body = ()=>{
     _s();
@@ -27178,13 +27180,16 @@ const Body = ()=>{
     const [filteredPokemon, setFilteredPokemon] = (0, _react.useState)([]);
     (0, _react.useEffect)(()=>{
         const fetchData = async ()=>{
-            const randomOffset = Math.floor(Math.random() * 1000); // to Generate a random offset
-            const URL = `https://pokeapi.co/api/v2/pokemon?offset=${randomOffset}&limit=200`;
+            const URL = `https://pokeapi.co/api/v2/pokemon?offset=${0}&limit=200`;
             const response = await fetch(URL);
             const data = await response.json();
             setPokemonList(data.results);
             setFilteredPokemon(data.results);
         };
+        fetchData();
+    }, []);
+    (0, _react.useEffect)(()=>{
+        const filtered = pokemonList.filter((pokemon)=>pokemon.name.startsWith(searchText.toLowerCase()));
         // {
         //   window.addEventListener("scroll", () => {
         //     if (
@@ -27195,10 +27200,6 @@ const Body = ()=>{
         //     }
         //   });
         // }
-        fetchData();
-    }, []);
-    (0, _react.useEffect)(()=>{
-        const filtered = pokemonList.filter((pokemon)=>pokemon.name.startsWith(searchText.toLowerCase()));
         setFilteredPokemon(filtered);
     }, [
         searchText,
@@ -27211,7 +27212,7 @@ const Body = ()=>{
                 children: "Search Your Pokemon"
             }, void 0, false, {
                 fileName: "src/components/Body.js",
-                lineNumber: 42,
+                lineNumber: 41,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27221,10 +27222,11 @@ const Body = ()=>{
                         className: "search-text",
                         type: "text",
                         value: searchText,
-                        onChange: (e)=>setSearchText(e.target.value)
+                        onChange: (e)=>setSearchText(e.target.value),
+                        placeholder: "Search"
                     }, void 0, false, {
                         fileName: "src/components/Body.js",
-                        lineNumber: 44,
+                        lineNumber: 43,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -27240,7 +27242,7 @@ const Body = ()=>{
                 ]
             }, void 0, true, {
                 fileName: "src/components/Body.js",
-                lineNumber: 43,
+                lineNumber: 42,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27260,7 +27262,7 @@ const Body = ()=>{
         ]
     }, void 0, true, {
         fileName: "src/components/Body.js",
-        lineNumber: 41,
+        lineNumber: 40,
         columnNumber: 5
     }, undefined);
 };
@@ -27275,7 +27277,7 @@ $RefreshReg$(_c, "Body");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./PokemonCard":"6x7dp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"6x7dp":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./PokemonCard":"6x7dp","./Shimmer":"g6ZGj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"6x7dp":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$fbd8 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -27289,6 +27291,8 @@ var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _constants = require("../utils/constants");
 var _constantsDefault = parcelHelpers.interopDefault(_constants);
+var _shimmer = require("./Shimmer");
+var _shimmerDefault = parcelHelpers.interopDefault(_shimmer);
 var _s = $RefreshSig$();
 const PokemonCard = ({ url })=>{
     _s();
@@ -27303,12 +27307,9 @@ const PokemonCard = ({ url })=>{
     }, [
         url
     ]);
-    if (!pokemonData) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "no-data",
-        children: "Loading..."
-    }, void 0, false, {
+    if (!pokemonData) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _shimmerDefault.default), {}, void 0, false, {
         fileName: "src/components/PokemonCard.js",
-        lineNumber: 18,
+        lineNumber: 19,
         columnNumber: 12
     }, undefined);
     const officialArtwork = pokemonData.sprites?.other?.["official-artwork"]?.front_default;
@@ -27322,46 +27323,138 @@ const PokemonCard = ({ url })=>{
     const getTypeColor = (type)=>{
         switch(type){
             case "fire":
-                return "#EA7A3C"; // Orange
+                return {
+                    color: "#EA7A3C",
+                    url: require("49e872797f4e18b5"),
+                    repeat: "no-repeat",
+                    height: "5rem"
+                };
             case "water":
-                return "#539AE2"; // Blue
+                return {
+                    color: "#539AE2",
+                    url: require("1a55c8d9a16d76bd"),
+                    repeat: "no-repeat",
+                    height: "5rem"
+                }; // Blue
             case "electric":
-                return "#E5C531"; // Yellow
+                return {
+                    color: "#E5C531",
+                    url: require("528099a0e387917b"),
+                    repeat: "no-repeat",
+                    height: "5rem"
+                }; // Yellow
             case "grass":
-                return "#71C558";
+                return {
+                    color: "#71C558",
+                    url: require("41a5dda221c4748a"),
+                    repeat: "no-repeat",
+                    height: "5rem"
+                };
             case "bug":
-                return "#94BC4A";
+                return {
+                    color: "#94BC4A",
+                    url: require("ec6e4ab348a9aaf6"),
+                    repeat: "no-repeat",
+                    height: "5rem"
+                };
             case "dark":
-                return "#736C75";
+                return {
+                    color: "#736C75",
+                    url: require("ec6e4ab348a9aaf6"),
+                    repeat: "no-repeat",
+                    height: "5rem"
+                };
             case "fighting":
-                return "#CB5F48";
+                return {
+                    color: "#CB5F48",
+                    url: require("8a109546e6ff7ce5"),
+                    repeat: "no-repeat",
+                    height: "5rem"
+                };
             case "ghost":
-                return "#846AB6";
+                return {
+                    color: "#846AB6",
+                    url: require("95d5955858bc4974"),
+                    repeat: "no-repeat",
+                    height: "5rem"
+                };
             case "ground":
-                return "#CC9F4F";
+                return {
+                    color: "#CC9F4F",
+                    url: require("a2640f53cc25f9ab"),
+                    repeat: "no-repeat",
+                    height: "5rem"
+                };
             case "ice":
-                return "#70CBD4";
+                return {
+                    color: "#70CBD4",
+                    url: require("d6bc6ed304781322"),
+                    repeat: "no-repeat",
+                    height: "5rem"
+                };
             case "normal":
-                return "#AAB09F";
+                return {
+                    color: "#AAB09F",
+                    url: require("fdc1fa052fb76ab5"),
+                    repeat: "no-repeat",
+                    height: "5rem"
+                };
             case "poison":
-                return "#B468B7";
+                return {
+                    color: "#B468B7",
+                    url: require("95d5955858bc4974"),
+                    repeat: "no-repeat",
+                    height: "5rem"
+                };
             case "psychic":
-                return "#E5709B";
+                return {
+                    color: "#E5709B",
+                    url: require("4ff19d9b3a508df9"),
+                    repeat: "no-repeat",
+                    height: "5rem"
+                };
             case "dragon":
-                return "#6A7BAF";
+                return {
+                    color: "#6A7BAF",
+                    url: require("91627796904724c9"),
+                    repeat: "no-repeat",
+                    height: "5rem"
+                };
             case "steel":
-                return "#89A1B0";
+                return {
+                    color: "#89A1B0",
+                    url: require("89d9f8660b9b61d4"),
+                    repeat: "no-repeat",
+                    height: "5rem"
+                };
             case "rock":
-                return "#B2A061";
+                return {
+                    color: "#B2A061",
+                    url: require("97ca8fede9e66342"),
+                    repeat: "no-repeat",
+                    height: "5rem"
+                };
             default:
-                return "#f5f5f5"; // Default color
+                return {
+                    color: "#B468B7",
+                    url: require("91627796904724c9"),
+                    repeat: "no-repeat",
+                    height: "5rem"
+                }; // Default color
         }
     };
-    const backgroundColor = getTypeColor(type);
+    const backgroundColor = getTypeColor(type).color;
+    const backgroundImage = `URL(${getTypeColor(type).url})`;
+    const backgroundRepeat = getTypeColor(type).repeat;
+    const backgroundSize = "5rem";
+    // console.log(backgroundImage);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "pokemon-container",
         style: {
-            backgroundColor
+            backgroundColor,
+            backgroundImage,
+            backgroundRepeat,
+            backgroundSize
         },
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27371,19 +27464,19 @@ const PokemonCard = ({ url })=>{
                     alt: "pokemon image"
                 }, void 0, false, {
                     fileName: "src/components/PokemonCard.js",
-                    lineNumber: 76,
+                    lineNumber: 173,
                     columnNumber: 11
                 }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
                     src: (0, _constantsDefault.default),
                     alt: "default pokemon image"
                 }, void 0, false, {
                     fileName: "src/components/PokemonCard.js",
-                    lineNumber: 78,
+                    lineNumber: 175,
                     columnNumber: 11
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/components/PokemonCard.js",
-                lineNumber: 74,
+                lineNumber: 171,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27394,7 +27487,7 @@ const PokemonCard = ({ url })=>{
                         children: name
                     }, void 0, false, {
                         fileName: "src/components/PokemonCard.js",
-                        lineNumber: 82,
+                        lineNumber: 179,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
@@ -27402,7 +27495,7 @@ const PokemonCard = ({ url })=>{
                         children: type
                     }, void 0, false, {
                         fileName: "src/components/PokemonCard.js",
-                        lineNumber: 83,
+                        lineNumber: 180,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27416,7 +27509,7 @@ const PokemonCard = ({ url })=>{
                                         children: "HP:"
                                     }, void 0, false, {
                                         fileName: "src/components/PokemonCard.js",
-                                        lineNumber: 87,
+                                        lineNumber: 184,
                                         columnNumber: 13
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -27424,13 +27517,13 @@ const PokemonCard = ({ url })=>{
                                         children: hp
                                     }, void 0, false, {
                                         fileName: "src/components/PokemonCard.js",
-                                        lineNumber: 88,
+                                        lineNumber: 185,
                                         columnNumber: 13
                                     }, undefined)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/components/PokemonCard.js",
-                                lineNumber: 86,
+                                lineNumber: 183,
                                 columnNumber: 11
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27441,7 +27534,7 @@ const PokemonCard = ({ url })=>{
                                         children: "Attack:"
                                     }, void 0, false, {
                                         fileName: "src/components/PokemonCard.js",
-                                        lineNumber: 91,
+                                        lineNumber: 188,
                                         columnNumber: 13
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -27449,13 +27542,13 @@ const PokemonCard = ({ url })=>{
                                         children: attack
                                     }, void 0, false, {
                                         fileName: "src/components/PokemonCard.js",
-                                        lineNumber: 92,
+                                        lineNumber: 189,
                                         columnNumber: 13
                                     }, undefined)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/components/PokemonCard.js",
-                                lineNumber: 90,
+                                lineNumber: 187,
                                 columnNumber: 11
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27466,7 +27559,7 @@ const PokemonCard = ({ url })=>{
                                         children: "Defense:"
                                     }, void 0, false, {
                                         fileName: "src/components/PokemonCard.js",
-                                        lineNumber: 95,
+                                        lineNumber: 192,
                                         columnNumber: 13
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -27474,13 +27567,13 @@ const PokemonCard = ({ url })=>{
                                         children: defense
                                     }, void 0, false, {
                                         fileName: "src/components/PokemonCard.js",
-                                        lineNumber: 96,
+                                        lineNumber: 193,
                                         columnNumber: 13
                                     }, undefined)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/components/PokemonCard.js",
-                                lineNumber: 94,
+                                lineNumber: 191,
                                 columnNumber: 11
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27491,7 +27584,7 @@ const PokemonCard = ({ url })=>{
                                         children: "Special Attack:"
                                     }, void 0, false, {
                                         fileName: "src/components/PokemonCard.js",
-                                        lineNumber: 99,
+                                        lineNumber: 196,
                                         columnNumber: 13
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -27499,13 +27592,13 @@ const PokemonCard = ({ url })=>{
                                         children: specialAttack
                                     }, void 0, false, {
                                         fileName: "src/components/PokemonCard.js",
-                                        lineNumber: 100,
+                                        lineNumber: 197,
                                         columnNumber: 13
                                     }, undefined)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/components/PokemonCard.js",
-                                lineNumber: 98,
+                                lineNumber: 195,
                                 columnNumber: 11
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27516,7 +27609,7 @@ const PokemonCard = ({ url })=>{
                                         children: "Speed:"
                                     }, void 0, false, {
                                         fileName: "src/components/PokemonCard.js",
-                                        lineNumber: 103,
+                                        lineNumber: 200,
                                         columnNumber: 13
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -27524,31 +27617,31 @@ const PokemonCard = ({ url })=>{
                                         children: speed
                                     }, void 0, false, {
                                         fileName: "src/components/PokemonCard.js",
-                                        lineNumber: 104,
+                                        lineNumber: 201,
                                         columnNumber: 13
                                     }, undefined)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/components/PokemonCard.js",
-                                lineNumber: 102,
+                                lineNumber: 199,
                                 columnNumber: 11
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/PokemonCard.js",
-                        lineNumber: 85,
+                        lineNumber: 182,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/PokemonCard.js",
-                lineNumber: 81,
+                lineNumber: 178,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/PokemonCard.js",
-        lineNumber: 73,
+        lineNumber: 162,
         columnNumber: 5
     }, undefined);
 };
@@ -27563,7 +27656,7 @@ $RefreshReg$(_c, "PokemonCard");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../utils/constants":"hB8jg","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"hB8jg":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../utils/constants":"hB8jg","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./Shimmer":"g6ZGj","ec6e4ab348a9aaf6":"e5DUI","49e872797f4e18b5":"lTmZR","528099a0e387917b":"gfeDv","41a5dda221c4748a":"6VecH","1a55c8d9a16d76bd":"49RmF","8a109546e6ff7ce5":"CTOcT","95d5955858bc4974":"ibqQk","a2640f53cc25f9ab":"AUU17","d6bc6ed304781322":"flY1B","fdc1fa052fb76ab5":"kSjjJ","4ff19d9b3a508df9":"2l94j","91627796904724c9":"eUO4V","89d9f8660b9b61d4":"7TQEG","97ca8fede9e66342":"1UYlr"}],"hB8jg":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 const IMG = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/shiny/132.png";
@@ -27737,6 +27830,121 @@ function registerExportsForReactRefresh(module1) {
     }
 }
 
-},{"7422ead32dcc1e6b":"786KC"}]},["hcwwj","1xC6H","2kQhy"], "2kQhy", "parcelRequiref1bd")
+},{"7422ead32dcc1e6b":"786KC"}],"g6ZGj":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$0b04 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$0b04.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+const Shimmer = ()=>{
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "shimmer-container",
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            className: "shimmer"
+        }, void 0, false, {
+            fileName: "src/components/Shimmer.js",
+            lineNumber: 6,
+            columnNumber: 7
+        }, undefined)
+    }, void 0, false, {
+        fileName: "src/components/Shimmer.js",
+        lineNumber: 5,
+        columnNumber: 5
+    }, undefined);
+};
+_c = Shimmer;
+exports.default = Shimmer;
+var _c;
+$RefreshReg$(_c, "Shimmer");
+
+  $parcel$ReactRefreshHelpers$0b04.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"e5DUI":[function(require,module,exports) {
+module.exports = require("e5e4cc4fcc093acd").getBundleURL("aXMci") + "bug.1a7e1fee.png" + "?" + Date.now();
+
+},{"e5e4cc4fcc093acd":"lgJ39"}],"lgJ39":[function(require,module,exports) {
+"use strict";
+var bundleURL = {};
+function getBundleURLCached(id) {
+    var value = bundleURL[id];
+    if (!value) {
+        value = getBundleURL();
+        bundleURL[id] = value;
+    }
+    return value;
+}
+function getBundleURL() {
+    try {
+        throw new Error();
+    } catch (err) {
+        var matches = ("" + err.stack).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^)\n]+/g);
+        if (matches) // The first two stack frames will be this function and getBundleURLCached.
+        // Use the 3rd one, which will be a runtime in the original bundle.
+        return getBaseURL(matches[2]);
+    }
+    return "/";
+}
+function getBaseURL(url) {
+    return ("" + url).replace(/^((?:https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/.+)\/[^/]+$/, "$1") + "/";
+}
+// TODO: Replace uses with `new URL(url).origin` when ie11 is no longer supported.
+function getOrigin(url) {
+    var matches = ("" + url).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^/]+/);
+    if (!matches) throw new Error("Origin not found");
+    return matches[0];
+}
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+exports.getOrigin = getOrigin;
+
+},{}],"lTmZR":[function(require,module,exports) {
+module.exports = require("aaf2e5efcfaa6015").getBundleURL("aXMci") + "fire.fbc89cce.png" + "?" + Date.now();
+
+},{"aaf2e5efcfaa6015":"lgJ39"}],"gfeDv":[function(require,module,exports) {
+module.exports = require("f2e31a8b361bdb66").getBundleURL("aXMci") + "electric.c9583254.png" + "?" + Date.now();
+
+},{"f2e31a8b361bdb66":"lgJ39"}],"6VecH":[function(require,module,exports) {
+module.exports = require("d62d850f3fb0ff34").getBundleURL("aXMci") + "grass.1972a117.png" + "?" + Date.now();
+
+},{"d62d850f3fb0ff34":"lgJ39"}],"49RmF":[function(require,module,exports) {
+module.exports = require("41f603a7e42e69dc").getBundleURL("aXMci") + "water.cfeb68d3.png" + "?" + Date.now();
+
+},{"41f603a7e42e69dc":"lgJ39"}],"CTOcT":[function(require,module,exports) {
+module.exports = require("e25a7a5eb6976aa6").getBundleURL("aXMci") + "fighting.22a9f1e7.png" + "?" + Date.now();
+
+},{"e25a7a5eb6976aa6":"lgJ39"}],"ibqQk":[function(require,module,exports) {
+module.exports = require("53e5c20f3010dd7b").getBundleURL("aXMci") + "poison.1b7cad1d.png" + "?" + Date.now();
+
+},{"53e5c20f3010dd7b":"lgJ39"}],"AUU17":[function(require,module,exports) {
+module.exports = require("92731337b5c49298").getBundleURL("aXMci") + "ground.862af0c3.png" + "?" + Date.now();
+
+},{"92731337b5c49298":"lgJ39"}],"flY1B":[function(require,module,exports) {
+module.exports = require("695486f8e8ffdc30").getBundleURL("aXMci") + "ice.4fa7e5a8.png" + "?" + Date.now();
+
+},{"695486f8e8ffdc30":"lgJ39"}],"kSjjJ":[function(require,module,exports) {
+module.exports = require("ba545553451ba380").getBundleURL("aXMci") + "normal.c3c111d1.png" + "?" + Date.now();
+
+},{"ba545553451ba380":"lgJ39"}],"2l94j":[function(require,module,exports) {
+module.exports = require("788edcd7f6704850").getBundleURL("aXMci") + "psychic.1777f535.png" + "?" + Date.now();
+
+},{"788edcd7f6704850":"lgJ39"}],"eUO4V":[function(require,module,exports) {
+module.exports = require("5c55ca80ab8afd87").getBundleURL("aXMci") + "dragon.2675f513.png" + "?" + Date.now();
+
+},{"5c55ca80ab8afd87":"lgJ39"}],"7TQEG":[function(require,module,exports) {
+module.exports = require("8f35b242ac990da9").getBundleURL("aXMci") + "steel.838f914f.png" + "?" + Date.now();
+
+},{"8f35b242ac990da9":"lgJ39"}],"1UYlr":[function(require,module,exports) {
+module.exports = require("cf440610264082c2").getBundleURL("aXMci") + "rock.bbf31cde.png" + "?" + Date.now();
+
+},{"cf440610264082c2":"lgJ39"}]},["hcwwj","1xC6H","2kQhy"], "2kQhy", "parcelRequiref1bd")
 
 //# sourceMappingURL=index.7271efb6.js.map

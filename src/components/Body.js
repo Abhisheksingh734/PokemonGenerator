@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import PokemonCard from "./PokemonCard";
+import Shimmer from "./Shimmer";
 
 const Body = () => {
   const [pokemonList, setPokemonList] = useState([]);
@@ -8,14 +9,20 @@ const Body = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const randomOffset = Math.floor(Math.random() * 1000); // to Generate a random offset
-      const URL = `https://pokeapi.co/api/v2/pokemon?offset=${randomOffset}&limit=200`;
+      const URL = `https://pokeapi.co/api/v2/pokemon?offset=${0}&limit=200`;
       const response = await fetch(URL);
       const data = await response.json();
       setPokemonList(data.results);
       setFilteredPokemon(data.results);
     };
 
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    const filtered = pokemonList.filter((pokemon) =>
+      pokemon.name.startsWith(searchText.toLowerCase())
+    );
     // {
     //   window.addEventListener("scroll", () => {
     //     if (
@@ -26,14 +33,6 @@ const Body = () => {
     //     }
     //   });
     // }
-
-    fetchData();
-  }, []);
-
-  useEffect(() => {
-    const filtered = pokemonList.filter((pokemon) =>
-      pokemon.name.startsWith(searchText.toLowerCase())
-    );
     setFilteredPokemon(filtered);
   }, [searchText, pokemonList]);
 
@@ -46,6 +45,7 @@ const Body = () => {
           type="text"
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
+          placeholder="Search"
         />
         <button
           className="search-btn"

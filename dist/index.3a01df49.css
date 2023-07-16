@@ -138,8 +138,25 @@
 }
 
 h1 {
-  margin-bottom: 20px;
+  color: #333;
+  margin: 5px;
+  font-family: Lucida Sans, Lucida Sans Regular, Lucida Grande, Lucida Sans Unicode, Geneva, Verdana, sans-serif;
   font-size: 3rem;
+  font-weight: bold;
+}
+
+.shimmer-container {
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.shimmer {
+  background: #d6cfcf;
+  border-radius: 12px;
+  width: 300px;
+  height: 600px;
 }
 
 /*# sourceMappingURL=index.3a01df49.css.map */

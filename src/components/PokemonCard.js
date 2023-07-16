@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import IMG from "../utils/constants";
+import Shimmer from "./Shimmer";
 
 const PokemonCard = ({ url }) => {
   const [pokemonData, setPokemonData] = useState(null);
@@ -15,7 +16,7 @@ const PokemonCard = ({ url }) => {
   }, [url]);
 
   if (!pokemonData) {
-    return <div className="no-data">Loading...</div>;
+    return <Shimmer />;
   }
 
   const officialArtwork =
@@ -31,46 +32,142 @@ const PokemonCard = ({ url }) => {
   const getTypeColor = (type) => {
     switch (type) {
       case "fire":
-        return "#EA7A3C"; // Orange
+        return {
+          color: "#EA7A3C",
+          url: require("../Assets/fire.png"),
+          repeat: "no-repeat",
+          height: "5rem",
+        };
       case "water":
-        return "#539AE2"; // Blue
+        return {
+          color: "#539AE2",
+          url: require("../Assets/water.png"),
+          repeat: "no-repeat",
+          height: "5rem",
+        }; // Blue
       case "electric":
-        return "#E5C531"; // Yellow
+        return {
+          color: "#E5C531",
+          url: require("../Assets/electric.png"),
+          repeat: "no-repeat",
+          height: "5rem",
+        }; // Yellow
       case "grass":
-        return "#71C558";
+        return {
+          color: "#71C558",
+          url: require("../Assets/grass.png"),
+          repeat: "no-repeat",
+          height: "5rem",
+        };
       case "bug":
-        return "#94BC4A";
+        return {
+          color: "#94BC4A",
+          url: require("../Assets/bug.png"),
+          repeat: "no-repeat",
+          height: "5rem",
+        };
       case "dark":
-        return "#736C75";
+        return {
+          color: "#736C75",
+          url: require("../Assets/bug.png"),
+          repeat: "no-repeat",
+          height: "5rem",
+        };
       case "fighting":
-        return "#CB5F48";
+        return {
+          color: "#CB5F48",
+          url: require("../Assets/fighting.png"),
+          repeat: "no-repeat",
+          height: "5rem",
+        };
       case "ghost":
-        return "#846AB6";
+        return {
+          color: "#846AB6",
+          url: require("../Assets/poison.png"),
+          repeat: "no-repeat",
+          height: "5rem",
+        };
       case "ground":
-        return "#CC9F4F";
+        return {
+          color: "#CC9F4F",
+          url: require("../Assets/ground.png"),
+          repeat: "no-repeat",
+          height: "5rem",
+        };
       case "ice":
-        return "#70CBD4";
+        return {
+          color: "#70CBD4",
+          url: require("../Assets/ice.png"),
+          repeat: "no-repeat",
+          height: "5rem",
+        };
       case "normal":
-        return "#AAB09F";
+        return {
+          color: "#AAB09F",
+          url: require("../Assets/normal.png"),
+          repeat: "no-repeat",
+          height: "5rem",
+        };
       case "poison":
-        return "#B468B7";
+        return {
+          color: "#B468B7",
+          url: require("../Assets/poison.png"),
+          repeat: "no-repeat",
+          height: "5rem",
+        };
       case "psychic":
-        return "#E5709B";
+        return {
+          color: "#E5709B",
+          url: require("../Assets/psychic.png"),
+          repeat: "no-repeat",
+          height: "5rem",
+        };
       case "dragon":
-        return "#6A7BAF";
+        return {
+          color: "#6A7BAF",
+          url: require("../Assets/dragon.png"),
+          repeat: "no-repeat",
+          height: "5rem",
+        };
       case "steel":
-        return "#89A1B0";
+        return {
+          color: "#89A1B0",
+          url: require("../Assets/steel.png"),
+          repeat: "no-repeat",
+          height: "5rem",
+        };
       case "rock":
-        return "#B2A061";
+        return {
+          color: "#B2A061",
+          url: require("../Assets/rock.png"),
+          repeat: "no-repeat",
+          height: "5rem",
+        };
       default:
-        return "#f5f5f5"; // Default color
+        return {
+          color: "#B468B7",
+          url: require("../Assets/dragon.png"),
+          repeat: "no-repeat",
+          height: "5rem",
+        }; // Default color
     }
   };
 
-  const backgroundColor = getTypeColor(type);
-
+  const backgroundColor = getTypeColor(type).color;
+  const backgroundImage = `URL(${getTypeColor(type).url})`;
+  const backgroundRepeat = getTypeColor(type).repeat;
+  const backgroundSize = "5rem";
+  // console.log(backgroundImage);
   return (
-    <div className="pokemon-container" style={{ backgroundColor }}>
+    <div
+      className="pokemon-container"
+      style={{
+        backgroundColor,
+        backgroundImage,
+        backgroundRepeat,
+        backgroundSize,
+      }}
+    >
       <div className="pokemon-img">
         {officialArtwork ? (
           <img src={officialArtwork} alt="pokemon image" />
