@@ -3,6 +3,8 @@
 Welcome to the Pokémon Generator App! This is a web application that allows you to search and view information about Pokémon using PokeAPI. 
 It is built with React and bundled with Parcel Bundler.
 
+![Pokémon Generator App](./src/Assets/pokemongenerator.png)
+
 ## Features
 
 - Search Pokémon by name
